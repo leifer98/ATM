@@ -1,0 +1,23 @@
+(gdb) set {char[16]} 0x402010 = "Hilol*ma!\0"
+(gdb) set *(int *) 0x402000 = 5
+(gdb) set *(int *) 0x402008 = 10
+
+(gdb) x/gx &data
+0x402010:       0x616d2a6c6f6c6948
+(gdb) x/gx &size
+0x402008:       0x000000000000000a
+(gdb) x/gx &type
+0x402000:       0x0000000000000001
+
+Valid ASCII Range:
+Letters: 65 to 90 (A-Z) and 97 to 122 (a-z)
+Numbers: 48 to 57 (0-9)
+Punctuation:
+Commas: 44
+Periods: 46
+Question marks: 63
+Exclamation points: 33
+Spaces: 32
+
+cmpq %r8, %r11            # Compare r11 with r8 (size)
+jge ascii_done            # Jump if r11 >= r8 ( i > size)
